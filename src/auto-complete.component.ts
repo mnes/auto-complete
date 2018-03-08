@@ -72,7 +72,7 @@ import {NguiAutoComplete} from "./auto-complete";
     border: 1px solid #ccc;
     box-sizing: border-box;
     animation: slideDown 0.1s;
-    height: 300px;
+    max-height: 300px;
     border-radius: 5px;
   }
   .ngui-auto-complete > ul.empty {
