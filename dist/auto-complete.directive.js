@@ -209,7 +209,7 @@ var NguiAutoCompleteDirective = (function () {
             this.selectNewValue(this.ngModel);
         }
         else if (!!this.formControl && this.formControl.value) {
-            this.selectNewValue(this.formControl.value[this.displayPropertyName]);
+            this.selectNewValue(this.formControl.value);
         }
     };
     NguiAutoCompleteDirective.prototype.ngAfterViewInit = function () {
