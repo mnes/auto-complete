@@ -1,39 +1,10 @@
 # auto-complete
 
-## IMPORTANT: NOT-MATAINED :(
-This project has been archived because of inactivity of the owner, Allen Kim. The current owner is looking for a new owner and ready to transfer ownership. Please send me the email to "allenhwkim AT gmail.com" to claim the ownership.
+[![npm](https://img.shields.io/npm/dt/@ngui/auto-complete.svg)](https://www.npmjs.com/package/@ngui/auto-complete)  [![npm](https://img.shields.io/npm/v/@ngui/auto-complete.svg)](https://www.npmjs.com/package/@ngui/auto-complete) [![npm](https://img.shields.io/npm/l/@ngui/auto-complete.svg)](https://www.npmjs.com/package/@ngui/auto-complete)
 
-<a href="https://rawgit.com/ng2-ui/auto-complete/master/app/index.html">
-  <img src="http://i.imgur.com/dAmheg0.png" />
-</a>
+##### IMPORTANT: HELP NEEDED
 
-Below are plunks for different scenarios:
-
-**`Template Driven Forms`**
-
-_ngModel_ http://plnkr.co/edit/3pB1Gx?p=preview
-
-**`Reactive Forms`**
-
- _FormGroup_  http://plnkr.co/edit/2osUq6?p=preview
-  [issue #49](https://github.com/ng2-ui/auto-complete/issues/49)
-
-_FormControl_ http://plnkr.co/edit/A5CW2e?p=preview
-  [issue #100](https://github.com/ng2-ui/auto-complete/issues/100)
-
-
-**`Material Design`**
-
-   http://plnkr.co/edit/2YLDjX?p=preview&open=app/app.component.ts
-
-**`Obervable Source`**
-
-  http://plnkr.co/edit/ExzNSh?p=preview
-
-**`List Formatter Example`**
-
-  http://plnkr.co/edit/F9nrWp?p=preview  
-  http://plnkr.co/edit/0QFYFHMmCAFmhbYAGQl7?p=preview (With custom css)
+The project now back to life, any help for fixing bugs and improvements are welcome! [![GitHub issues](https://img.shields.io/github/issues/ng2-ui/auto-complete.svg)](https://github.com/ng2-ui/auto-complete/issues)
 
 ## Install
 
@@ -67,25 +38,8 @@ For full example, please check `test` directory to see the example of;
   - `app.module.ts`
   -  and `app.component.ts`.
 
-
-## Contributors are welcomed
-
-This module is only improved and maintained by contributors like you;
-
-As a contributor, it's NOT required to be skilled in Javascript nor Angular.
-You can contribute to the following;
-
-  * Updating README.md
-  * Making more and clearer comments
-  * Answering issues and building FAQ
-  * Documentation
-  * Translation
-
-In result of your active contribution, you will be listed as a core contributor
-on https://ng2-ui.github.io, and a member of ng2-ui too.
-
-If you are interested in becoming a contributor and/or a member of ng-ui,
-please send me email to `allenhwkim AT gmail.com` with your github id.
+## Demo 
+You can look at different show cases for it here as [Component](https://rawgit.com/ng2-ui/auto-complete/master/app/index.html#/component-test) or [Directive](https://rawgit.com/ng2-ui/auto-complete/master/app/index.html#/directive-test). 
 
 ## attributes
   All options are optional except ngModel and source
@@ -93,12 +47,12 @@ please send me email to `allenhwkim AT gmail.com` with your github id.
   * **`ngModel`**, any, variable that autocomplete result is assigned to
   * **`source`**, array or string, required. data source for dropdown list
   * **`auto-complete-placeholder`**,  string, autocomplete input guide text
-  * **`value-formatter`**, string or function variable name, custom value formatting function. e.g. '(id) value', 'myValueFormatter'.
+  * **`value-formatter`**, string or function variable name, custom value formatting function. e.g. `(id) value`, '`myValueFormatter`.
 
            myValueFormatter(data: any): string {
               return `(${data[id]}) ${data[value]}`;
             }
-  * **`list-formatter`**, string or function variable name, custom list formatting function. e.g.  '(key) name', 'myListFormatter'.
+  * **`list-formatter`**, string or function variable name, custom list formatting function. e.g.  `(key) name`, `myListFormatter`.
 
            myListFormatter(data: any): string {
               return `(${data[key]}) ${data[name]}`;
@@ -123,9 +77,59 @@ please send me email to `allenhwkim AT gmail.com` with your github id.
   * **`match-formatted`** boolean, if `true`, keyword will be matched against list values formatted with `list-formatter`, instead of raw objects. Default is `false`
   * **`auto-select-first-item`**, boolean, if `true`, the first item of the list is automatically selected, if `false`, user must select manually an item. Default is `false`
   * **`open-on-focus`**, boolean, if `false` drop down won't open on a focus event, . Default is `true`
-  * **`close-on-focus`**, boolean, if `false` drop down will close on a focusout event, . Default is `true`
+  * **`close-on-focusout`**, boolean, if `false` drop down will close on a focusout event, . Default is `true`
   * **`re-focus-after-select property`**, boolean, if `false` an auto focus behavior after select (example: custom value on blur event or issue #276) is disabled . Default is `true`
   * **`autocomplete`**, boolean, default `false`, if `true` remove the attribute `autocomplete="off"` of the input.
+  * **`header-item-template`**, html markup to optionally create a non-selectable header row above the list of results. Default, null
+  * **`ignore-accents`**, boolean, default `true`, if `false` user input must match exactly with source given, including accents or diacritics
+
+## Below are plunks for different scenarios:
+
+**Template Driven Forms**
+
+* _ngModel_ http://plnkr.co/edit/3pB1Gx?p=preview
+
+**Reactive Forms**
+
+*  _FormGroup_  http://plnkr.co/edit/2osUq6?p=preview
+  [issue #49](https://github.com/ng2-ui/auto-complete/issues/49)
+
+* _FormControl_ http://plnkr.co/edit/A5CW2e?p=preview
+  [issue #100](https://github.com/ng2-ui/auto-complete/issues/100)
+
+
+**Material Design**
+
+* _Example_ http://plnkr.co/edit/2YLDjX?p=preview&open=app/app.component.ts
+
+**Observable Source**
+
+* _Example_ http://plnkr.co/edit/ExzNSh?p=preview
+
+**List Formatter Example**
+
+* _Example 1_ http://plnkr.co/edit/F9nrWp?p=preview  
+* _Example 2 (With custom css)_ http://plnkr.co/edit/0QFYFHMmCAFmhbYAGQl7?p=preview
+
+## Contributors are welcomed
+
+This module is only improved and maintained by contributors like you;
+
+As a contributor, it's NOT required to be skilled in Javascript nor Angular.
+You can contribute to the following;
+
+  * Updating README.md
+  * Making more and clearer comments
+  * Answering issues and building FAQ
+  * Documentation
+  * Translation
+
+In result of your active contribution, you will be listed as a core contributor
+on https://ng2-ui.github.io, and a member of ng2-ui too.
+
+If you are interested in becoming a contributor and/or a member of ng-ui,
+please send me email to `allenhwkim AT gmail.com` with your github id.
+
 ## For Developers
 
 ### To start
@@ -133,15 +137,22 @@ please send me email to `allenhwkim AT gmail.com` with your github id.
     $ git clone https://github.com/ng2-ui/auto-complete.git
     $ cd auto-complete
     $ npm install
+    $ npm build-lib:watch
+    
+    $ # On different instance
+    
     $ npm start
+    
+### To publish
+
+    $ npm build-lib:prod
+    $ cd dist
+    $ npm publish
 
 ### List of available npm tasks
 
   * `npm run` : List all available tasks
-  * `npm start`: Run `app` directory for development using `webpack-dev-server` with port 9001
-  * `npm run clean`: Remove dist folder
+  * `npm start`: Run `demo` directory for development using `@angular/cli` with port 4200
   * `npm run lint`: Lint TypeScript code
-  * `npm run build:ngc`: build ES module
-  * `npm run build:umd`: Build UMD module `ng2-map.umd.js`
-  * `npm run build:app`: Build `app/build/app.js` for runnable examples
-  * `npm run build`: Build all(clean, build:ngc, build:umc, and build:app)
+  * `npm run build-lib:watch`: Build library in live watch mode for development
+  * `npm run build-lib:prod`: Build library for publish using view engine (not Ivy renderer)

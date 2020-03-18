@@ -1,9 +1,20 @@
+## [3.0.0] Major Update
+- Upgraded to support Angular 9 and migrate boilerplate to `@angular/cli`
+## [2.0.0] Major Update
+- Upgraded to Angular 6 and RxJS 6
+- Added new property `ignore-accents`, default is `true`
+### [1.0.2] 
+- Fix build and publish issues.
+###### [1.0.1] - _BROKEN!_
+- Fix bug of directive when select an item causes "cannot read property 'renderValue' of undefined"
+## [1.0.0] Major Update
+- This version publish latest changes from PRs and support Angular 5 and may have some breaking changes.
 ### [0.14.2]
 - return keyword if no items were selected
 ### [0.14.1]
 - add a new property `select-on-blur`
 ### [0.14.0]
-- #####Upgraded to Angular 4
+- Upgraded to Angular 4
 ### [0.13.4]
 - now the first item on the suggestion dropdown will not be auto-selected until we press the arrow down key
 ### [0.13.0]
