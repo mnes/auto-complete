@@ -52,7 +52,7 @@ export class NguiAutoCompleteDirective implements OnInit, OnChanges {
   //if [formControl] is used on the anchor where our directive is sitting
   //a form is not necessary to use a formControl we should also support this
   @Input('formControl') extFormControl: FormControl;
-  @Input("z-index") zIndex: string = "1000";
+  @Input("z-index") zIndex: string = "1";
   @Input("is-rtl") isRtl: boolean = false;
 
   @Output() ngModelChange = new EventEmitter();

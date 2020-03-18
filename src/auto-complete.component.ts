@@ -57,7 +57,7 @@ import {NguiAutoComplete} from "./auto-complete";
   .ngui-auto-complete > input {
     outline: none;
     border: 0;
-    padding: 2px;
+    padding: 2px; 
     box-sizing: border-box;
     background-clip: content-box;
   }
@@ -72,8 +72,6 @@ import {NguiAutoComplete} from "./auto-complete";
     border: 1px solid #ccc;
     box-sizing: border-box;
     animation: slideDown 0.1s;
-    max-height: 300px;
-    border-radius: 5px;
   }
   .ngui-auto-complete > ul.empty {
     display: none;

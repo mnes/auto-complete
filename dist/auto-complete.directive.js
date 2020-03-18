@@ -23,7 +23,7 @@ var NguiAutoCompleteDirective = (function () {
         this.openOnFocus = true;
         this.closeOnFocusOut = true;
         this.reFocusAfterSelect = true;
-        this.zIndex = "1000";
+        this.zIndex = "1";
         this.isRtl = false;
         this.ngModelChange = new core_1.EventEmitter();
         this.valueChanged = new core_1.EventEmitter();
@@ -209,7 +209,7 @@ var NguiAutoCompleteDirective = (function () {
             this.selectNewValue(this.ngModel);
         }
         else if (!!this.formControl && this.formControl.value) {
-            this.selectNewValue(this.formControl.value);
+            this.selectNewValue(this.formControl.value[this.displayPropertyName]);
         }
     };
     NguiAutoCompleteDirective.prototype.ngAfterViewInit = function () {
