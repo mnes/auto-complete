@@ -42,6 +42,8 @@ export class NguiAutoCompleteDirective implements OnInit, OnChanges, AfterViewIn
   @Input('re-focus-after-select') public reFocusAfterSelect = true;
   @Input('header-item-template') public headerItemTemplate = null;
   @Input('ignore-accents') public ignoreAccents = true;
+  @Input('no-filtering') public noFiltering = false;
+
 
   @Input() public ngModel: string;
   @Input('formControlName') public formControlName: string;
@@ -189,6 +191,7 @@ export class NguiAutoCompleteDirective implements OnInit, OnChanges, AfterViewIn
     component.autoSelectFirstItem = this.autoSelectFirstItem;
     component.headerItemTemplate = this.headerItemTemplate;
     component.ignoreAccents = this.ignoreAccents;
+    component.noFiltering = this.noFiltering;
 
     component.valueSelected.subscribe(this.selectNewValue);
     component.textEntered.subscribe(this.enterNewText);
