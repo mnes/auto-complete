@@ -30,6 +30,7 @@ var NguiAutoCompleteComponent = (function () {
         this.autoSelectFirstItem = false;
         this.selectOnBlur = false;
         this.reFocusAfterSelect = true;
+        this.noFiltering = false;
         this.valueSelected = new core_1.EventEmitter();
         this.customSelected = new core_1.EventEmitter();
         this.textEntered = new core_1.EventEmitter();
@@ -134,7 +135,7 @@ var NguiAutoCompleteComponent = (function () {
         }
         if (this.isSrcArr()) {
             this.isLoading = false;
-            this.filteredList = this.autoComplete.filter(this.source, keyword, this.matchFormatted);
+            this.filteredList = this.autoComplete.filter(this.source, keyword, this.matchFormatted, this.noFiltering);
             if (this.maxNumList) {
                 this.filteredList = this.filteredList.slice(0, this.maxNumList);
             }
@@ -242,6 +243,7 @@ var NguiAutoCompleteComponent = (function () {
         'autoSelectFirstItem': [{ type: core_1.Input, args: ["auto-select-first-item",] },],
         'selectOnBlur': [{ type: core_1.Input, args: ["select-on-blur",] },],
         'reFocusAfterSelect': [{ type: core_1.Input, args: ["re-focus-after-select",] },],
+        'noFiltering': [{ type: core_1.Input, args: ["no-filtering",] },],
         'valueSelected': [{ type: core_1.Output },],
         'customSelected': [{ type: core_1.Output },],
         'textEntered': [{ type: core_1.Output },],

@@ -109,14 +109,19 @@ var NguiAutoComplete = (function () {
         this.http = http;
         // ...
     }
-    NguiAutoComplete.prototype.filter = function (list, keyword, matchFormatted) {
+    NguiAutoComplete.prototype.filter = function (list, keyword, matchFormatted, noFiltering) {
         var _this = this;
-        return list.filter(function (el) {
-            var objStr = matchFormatted ? _this.getFormattedListItem(el).toLowerCase() : JSON.stringify(el).toLowerCase();
-            keyword = keyword.toLowerCase();
-            //console.log(objStr, keyword, objStr.indexOf(keyword) !== -1);
-            return objStr.indexOf(keyword) !== -1;
-        });
+        if (noFiltering) {
+            return list;
+        }
+        else {
+            return list.filter(function (el) {
+                var objStr = matchFormatted ? _this.getFormattedListItem(el).toLowerCase() : JSON.stringify(el).toLowerCase();
+                keyword = keyword.toLowerCase();
+                //console.log(objStr, keyword, objStr.indexOf(keyword) !== -1);
+                return objStr.indexOf(keyword) !== -1;
+            });
+        }
     };
     NguiAutoComplete.prototype.getFormattedListItem = function (data) {
         var formatted;
@@ -223,6 +228,7 @@ var NguiAutoCompleteComponent = (function () {
         this.autoSelectFirstItem = false;
         this.selectOnBlur = false;
         this.reFocusAfterSelect = true;
+        this.noFiltering = false;
         this.valueSelected = new core_1.EventEmitter();
         this.customSelected = new core_1.EventEmitter();
         this.textEntered = new core_1.EventEmitter();
@@ -327,7 +333,7 @@ var NguiAutoCompleteComponent = (function () {
         }
         if (this.isSrcArr()) {
             this.isLoading = false;
-            this.filteredList = this.autoComplete.filter(this.source, keyword, this.matchFormatted);
+            this.filteredList = this.autoComplete.filter(this.source, keyword, this.matchFormatted, this.noFiltering);
             if (this.maxNumList) {
                 this.filteredList = this.filteredList.slice(0, this.maxNumList);
             }
@@ -477,6 +483,10 @@ var NguiAutoCompleteComponent = (function () {
         __metadata("design:type", Boolean)
     ], NguiAutoCompleteComponent.prototype, "reFocusAfterSelect", void 0);
     __decorate([
+        core_1.Input("no-filtering"),
+        __metadata("design:type", Boolean)
+    ], NguiAutoCompleteComponent.prototype, "noFiltering", void 0);
+    __decorate([
         core_1.Output(),
         __metadata("design:type", Object)
     ], NguiAutoCompleteComponent.prototype, "valueSelected", void 0);
@@ -561,6 +571,7 @@ var NguiAutoCompleteDirective = (function () {
         this.openOnFocus = true;
         this.closeOnFocusOut = true;
         this.reFocusAfterSelect = true;
+        this.noFiltering = false;
         this.zIndex = "1000";
         this.isRtl = false;
         this.ngModelChange = new core_1.EventEmitter();
@@ -593,6 +604,7 @@ var NguiAutoCompleteDirective = (function () {
             component.selectOnBlur = _this.selectOnBlur;
             component.matchFormatted = _this.matchFormatted;
             component.autoSelectFirstItem = _this.autoSelectFirstItem;
+            component.noFiltering = _this.noFiltering;
             component.valueSelected.subscribe(_this.selectNewValue);
             component.textEntered.subscribe(_this.enterNewText);
             component.customSelected.subscribe(_this.selectCustomValue);
@@ -917,6 +929,10 @@ var NguiAutoCompleteDirective = (function () {
         core_1.Input("re-focus-after-select"),
         __metadata("design:type", Boolean)
     ], NguiAutoCompleteDirective.prototype, "reFocusAfterSelect", void 0);
+    __decorate([
+        core_1.Input("no-filtering"),
+        __metadata("design:type", Boolean)
+    ], NguiAutoCompleteDirective.prototype, "noFiltering", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)
