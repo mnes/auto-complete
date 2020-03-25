@@ -17,15 +17,19 @@ export class NguiAutoComplete {
     // ...
   }
 
-  filter(list: any[], keyword: string, matchFormatted: boolean) {
-    return list.filter(
-      el => {
-        let objStr = matchFormatted ? this.getFormattedListItem(el).toLowerCase() : JSON.stringify(el).toLowerCase();
-        keyword = keyword.toLowerCase();
-        //console.log(objStr, keyword, objStr.indexOf(keyword) !== -1);
-        return objStr.indexOf(keyword) !== -1;
-      }
-    );
+  filter(list: any[], keyword: string, matchFormatted: boolean, noFiltering: boolean) {
+    if(noFiltering) {
+      return list;
+    } else {
+      return list.filter(
+        el => {
+          let objStr = matchFormatted ? this.getFormattedListItem(el).toLowerCase() : JSON.stringify(el).toLowerCase();
+          keyword = keyword.toLowerCase();
+          //console.log(objStr, keyword, objStr.indexOf(keyword) !== -1);
+          return objStr.indexOf(keyword) !== -1;
+        }
+      );
+    }
   }
 
   getFormattedListItem(data: any) {

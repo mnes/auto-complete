@@ -30,6 +30,7 @@ export declare class NguiAutoCompleteComponent implements OnInit {
     autoSelectFirstItem: boolean;
     selectOnBlur: boolean;
     reFocusAfterSelect: boolean;
+    noFiltering: boolean;
     valueSelected: EventEmitter<{}>;
     customSelected: EventEmitter<{}>;
     textEntered: EventEmitter<{}>;

@@ -122,6 +122,7 @@ export class NguiAutoCompleteComponent implements OnInit {
   @Input("auto-select-first-item") autoSelectFirstItem: boolean = false;
   @Input("select-on-blur") selectOnBlur: boolean = false;
   @Input("re-focus-after-select") reFocusAfterSelect: boolean = true;
+  @Input("no-filtering") noFiltering: boolean = false;
 
   @Output() valueSelected = new EventEmitter();
   @Output() customSelected = new EventEmitter();
@@ -208,7 +209,7 @@ export class NguiAutoCompleteComponent implements OnInit {
 
     if (this.isSrcArr()) {    // local source
       this.isLoading = false;
-      this.filteredList = this.autoComplete.filter(this.source, keyword, this.matchFormatted);
+      this.filteredList = this.autoComplete.filter(this.source, keyword, this.matchFormatted, this.noFiltering);
       if (this.maxNumList) {
         this.filteredList = this.filteredList.slice(0, this.maxNumList);
       }

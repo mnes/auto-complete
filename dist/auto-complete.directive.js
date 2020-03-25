@@ -23,6 +23,7 @@ var NguiAutoCompleteDirective = (function () {
         this.openOnFocus = true;
         this.closeOnFocusOut = true;
         this.reFocusAfterSelect = true;
+        this.noFiltering = false;
         this.zIndex = "1000";
         this.isRtl = false;
         this.ngModelChange = new core_1.EventEmitter();
@@ -55,6 +56,7 @@ var NguiAutoCompleteDirective = (function () {
             component.selectOnBlur = _this.selectOnBlur;
             component.matchFormatted = _this.matchFormatted;
             component.autoSelectFirstItem = _this.autoSelectFirstItem;
+            component.noFiltering = _this.noFiltering;
             component.valueSelected.subscribe(_this.selectNewValue);
             component.textEntered.subscribe(_this.enterNewText);
             component.customSelected.subscribe(_this.selectCustomValue);
@@ -325,6 +327,7 @@ var NguiAutoCompleteDirective = (function () {
         'openOnFocus': [{ type: core_1.Input, args: ["open-on-focus",] },],
         'closeOnFocusOut': [{ type: core_1.Input, args: ["close-on-focusout",] },],
         'reFocusAfterSelect': [{ type: core_1.Input, args: ["re-focus-after-select",] },],
+        'noFiltering': [{ type: core_1.Input, args: ["no-filtering",] },],
         'ngModel': [{ type: core_1.Input },],
         'formControlName': [{ type: core_1.Input, args: ['formControlName',] },],
         'extFormControl': [{ type: core_1.Input, args: ['formControl',] },],

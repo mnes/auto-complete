@@ -10,7 +10,7 @@ export declare class NguiAutoComplete {
     pathToData: string;
     listFormatter: (arg: any) => string;
     constructor(http: Http);
-    filter(list: any[], keyword: string, matchFormatted: boolean): any[];
+    filter(list: any[], keyword: string, matchFormatted: boolean, noFiltering: boolean): any[];
     getFormattedListItem(data: any): any;
     /**
      * return remote data from the given source and options, and data path
