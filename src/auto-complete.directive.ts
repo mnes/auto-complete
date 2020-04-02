@@ -254,10 +254,17 @@ export class NguiAutoCompleteDirective implements OnInit, OnChanges {
     if (this.componentRef) {
       let component = this.componentRef.instance;
 
+      let scrollheight = 0;
+      if (this.source && this.source.length > 0) {
+        scrollheight = this.source.length * 24;  // プルダウンのoption1つのheightが24px
+        scrollheight = scrollheight > 300 ? 300 : scrollheight;  // 300以上は300にする
+      }
+      scrollheight += 50;  // フッターがあるかもしれないので、フッター分のオフセットを加味する
+
       /* setting width/height auto complete */
       let thisElBCR = this.el.getBoundingClientRect();
       let thisInputElBCR = this.inputEl.getBoundingClientRect();
-      let closeToBottom = thisInputElBCR.bottom + 100 > window.innerHeight;
+      let closeToBottom = thisInputElBCR.bottom + scrollheight > window.innerHeight;
       let directionOfStyle = this.isRtl ? 'right' : 'left';
 
       this.acDropdownEl.style.width = thisInputElBCR.width + "px";
