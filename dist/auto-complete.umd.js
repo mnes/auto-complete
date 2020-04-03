@@ -644,10 +644,16 @@ var NguiAutoCompleteDirective = (function () {
         this.styleAutoCompleteDropdown = function () {
             if (_this.componentRef) {
                 var component = _this.componentRef.instance;
+                var scrollheight = 0;
+                if (_this.source && _this.source.length > 0) {
+                    scrollheight = _this.source.length * 24; // プルダウンのoption1つのheightが24px
+                    scrollheight = scrollheight > 300 ? 300 : scrollheight; // 300以上は300にする
+                }
+                scrollheight += 50; // フッターがあるかもしれないので、フッター分のオフセットを加味する
                 /* setting width/height auto complete */
                 var thisElBCR = _this.el.getBoundingClientRect();
                 var thisInputElBCR = _this.inputEl.getBoundingClientRect();
-                var closeToBottom = thisInputElBCR.bottom + 100 > window.innerHeight;
+                var closeToBottom = thisInputElBCR.bottom + scrollheight > window.innerHeight;
                 var directionOfStyle = _this.isRtl ? 'right' : 'left';
                 _this.acDropdownEl.style.width = thisInputElBCR.width + "px";
                 _this.acDropdownEl.style.position = "absolute";
