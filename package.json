@@ -1,56 +1,36 @@
 {
-  "name": "auto-complete",
-  "version": "0.0.0",
+  "name": "@ngui/auto-complete",
+  "version": "3.0.0",
   "description": "Angular Input Autocomplete",
   "license": "MIT",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build-lib:watch": "ng build auto-complete --watch",
-    "build-lib:prod": "ng build auto-complete --prod && npm run copy-lib",
-    "copy-lib": "copyfiles -f LICENSE.md README.md dist/auto-complete"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ng2-ui/auto-complete.git"
   },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "~9.0.0",
-    "@angular/cdk": "^9.1.0",
-    "@angular/common": "~9.0.0",
-    "@angular/compiler": "~9.0.0",
-    "@angular/core": "~9.0.0",
-    "@angular/forms": "~9.0.0",
-    "@angular/material": "^9.1.0",
-    "@angular/platform-browser": "~9.0.0",
-    "@angular/platform-browser-dynamic": "~9.0.0",
-    "@angular/router": "~9.0.0",
-    "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ng2-ui/auto-complete/issues"
   },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.2",
-    "@angular-devkit/build-ng-packagr": "~0.900.2",
-    "@angular/cli": "~9.0.1",
-    "@angular/compiler-cli": "~9.0.0",
-    "@angular/language-service": "~9.0.0",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^5.1.2",
-    "copyfiles": "^2.2.0",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.3.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.2",
-    "ng-packagr": "^9.0.0",
-    "protractor": "~5.4.3",
-    "ts-node": "~8.3.0",
-    "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
-  }
+  "homepage": "https://github.com/ng2-ui/auto-complete#readme",
+  "keywords": [
+    "angular",
+    "auto-complete",
+    "input",
+    "select"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^9.0.1",
+    "@angular/core": "^9.0.1",
+    "tslib": "^1.10.0"
+  },
+  "main": "bundles/ngui-auto-complete.umd.js",
+  "module": "fesm5/ngui-auto-complete.js",
+  "es2015": "fesm2015/ngui-auto-complete.js",
+  "esm5": "esm5/ngui-auto-complete.js",
+  "esm2015": "esm2015/ngui-auto-complete.js",
+  "fesm5": "fesm5/ngui-auto-complete.js",
+  "fesm2015": "fesm2015/ngui-auto-complete.js",
+  "typings": "ngui-auto-complete.d.ts",
+  "metadata": "ngui-auto-complete.metadata.json",
+  "sideEffects": false
 }
