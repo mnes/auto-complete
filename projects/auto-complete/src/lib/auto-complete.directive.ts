@@ -42,6 +42,7 @@ export class NguiAutoCompleteDirective implements OnInit, OnChanges, AfterViewIn
   @Input('re-focus-after-select') public reFocusAfterSelect = true;
   @Input('header-item-template') public headerItemTemplate = null;
   @Input('ignore-accents') public ignoreAccents = true;
+  @Input("no-filtering") noFiltering: boolean = false;
 
   @Input() public ngModel: string;
   @Input('formControlName') public formControlName: string;
@@ -189,6 +190,7 @@ export class NguiAutoCompleteDirective implements OnInit, OnChanges, AfterViewIn
     component.autoSelectFirstItem = this.autoSelectFirstItem;
     component.headerItemTemplate = this.headerItemTemplate;
     component.ignoreAccents = this.ignoreAccents;
+    component.noFiltering = this.noFiltering;
 
     component.valueSelected.subscribe(this.selectNewValue);
     component.textEntered.subscribe(this.enterNewText);
@@ -254,10 +256,17 @@ export class NguiAutoCompleteDirective implements OnInit, OnChanges, AfterViewIn
     if (this.componentRef) {
       const component = this.componentRef.instance;
 
+      let scrollheight = 0;
+      if (this.source && this.source.length > 0) {
+        scrollheight = this.source.length * 24;  // プルダウンのoption1つのheightが24px
+        scrollheight = scrollheight > 300 ? 300 : scrollheight;  // 300以上は300にする
+      }
+      scrollheight += 50;  // フッターがあるかもしれないので、フッター分のオフセットを加味する
+
       /* setting width/height auto complete */
       const thisElBCR = this.el.getBoundingClientRect();
       const thisInputElBCR = this.inputEl.getBoundingClientRect();
-      const closeToBottom = thisInputElBCR.bottom + 100 > window.innerHeight;
+      const closeToBottom = thisInputElBCR.bottom + scrollheight > window.innerHeight;
       const directionOfStyle = this.isRtl ? 'right' : 'left';
 
       this.acDropdownEl.style.width = thisInputElBCR.width + 'px';

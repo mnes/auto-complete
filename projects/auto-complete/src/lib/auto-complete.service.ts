@@ -16,7 +16,10 @@ export class NguiAutoComplete {
     // ...
   }
 
-  public filter(list: any[], keyword: string, matchFormatted: boolean, accentInsensitive: boolean) {
+  public filter(list: any[], keyword: string, matchFormatted: boolean, accentInsensitive: boolean, noFiltering: boolean) {
+    if (noFiltering) {
+      return list;
+    }
     return accentInsensitive
       ? list.filter(
         (el) => {
